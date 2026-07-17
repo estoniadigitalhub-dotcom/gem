@@ -1,0 +1,6 @@
+{
+  "name": "Landing Page Generator",
+  "description": "An AI-powered landing page builder and customizer with Stripe subscription/payment integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

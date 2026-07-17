@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with premium license status and account information",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The unique user authentication ID" },
+        "email": { "type": "string", "format": "email", "description": "The email address of the user" },
+        "isPremium": { "type": "boolean", "description": "Whether the user has purchased the premium license" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "email", "isPremium", "createdAt", "updatedAt"]
+    },
+    "LandingPageEntity": {
+      "title": "LandingPage",
+      "description": "AI-generated or custom configured landing page",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique landing page identifier" },
+        "ownerId": { "type": "string", "description": "The UID of the user who created this landing page" },
+        "businessName": { "type": "string", "maxLength": 100 },
+        "tagline": { "type": "string", "maxLength": 200 },
+        "theme": { "type": "string", "maxLength": 50 },
+        "colors": { "type": "object" },
+        "hero": { "type": "object" },
+        "features": { "type": "array" },
+        "stats": { "type": "array" },
+        "testimonials": { "type": "array" },
+        "pricing": { "type": "object" },
+        "faqs": { "type": "array" },
+        "footer": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "id",
+        "ownerId",
+        "businessName",
+        "tagline",
+        "theme",
+        "colors",
+        "hero",
+        "features",
+        "stats",
+        "testimonials",
+        "pricing",
+        "faqs",
+        "footer",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles containing license state and details"
+    },
+    "/landingPages/{pageId}": {
+      "schema": "LandingPageEntity",
+      "description": "Saved landing page instances created by users"
+    }
+  }
+}
